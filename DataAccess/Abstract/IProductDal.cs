@@ -6,14 +6,10 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IProductDal
+    //Artık burada hangi nesne olduğunu belirterek IEntitRepository referans verip içerideki kodları kullanabiliyoruz. 
+    public interface IProductDal:IEntitRepository<Product>
     {
-        List<Product> GetAll();//Tüm ürünleri getir.
-
-        void Add(Product product);
-        void Update(Product product);
-        void Delete(Product product);
-        List<Product> GetAllByCategory(int categoryId);//Kategoriye göre listele
+       
 
     }
 }

@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
@@ -15,11 +16,11 @@ namespace DataAccess.Concrete.InMemory
         {
             //Oracle,Sql Server,MongoDb,Postgres herhangi bir veritabanı olabilir.
             _products =new List<Product> {
-                new Product{ProductId = 1,CategoryId = 1,ProductName = "Bardak",UnitePrice = 15,UnitsInStock = 15},
-                new Product{ProductId = 2,CategoryId = 1,ProductName = "Kamera",UnitePrice = 500,UnitsInStock = 3},
-                new Product{ProductId = 3,CategoryId = 2,ProductName = "Telefon",UnitePrice = 1500,UnitsInStock = 2},
-                new Product{ProductId = 4,CategoryId = 2,ProductName = "Klavye",UnitePrice = 150,UnitsInStock = 65},
-                new Product{ProductId = 5,CategoryId = 2,ProductName = "Fare",UnitePrice = 85,UnitsInStock = 1}
+                new Product{ProductId = 1,CategoryId = 1,ProductName = "Bardak",UnitPrice = 15,UnitsInStock = 15},
+                new Product{ProductId = 2,CategoryId = 1,ProductName = "Kamera",UnitPrice = 500,UnitsInStock = 3},
+                new Product{ProductId = 3,CategoryId = 2,ProductName = "Telefon",UnitPrice = 1500,UnitsInStock = 2},
+                new Product{ProductId = 4,CategoryId = 2,ProductName = "Klavye",UnitPrice = 150,UnitsInStock = 65},
+                new Product{ProductId = 5,CategoryId = 2,ProductName = "Fare",UnitPrice = 85,UnitsInStock = 1}
                 };
         }
         public void Add(Product product)
@@ -60,9 +61,19 @@ namespace DataAccess.Concrete.InMemory
             Product productToUpdate = _products.SingleOrDefault(p => p.ProductId == product.ProductId);
             productToUpdate.ProductName = product.ProductName;
             productToUpdate.CategoryId = product.CategoryId;
-            productToUpdate.UnitePrice = product.UnitePrice;
+            productToUpdate.UnitPrice = product.UnitPrice;
             productToUpdate.UnitsInStock = productToUpdate.UnitsInStock;
 
+        }
+
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product Get(Expression<Func<Product, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
     }
 }
