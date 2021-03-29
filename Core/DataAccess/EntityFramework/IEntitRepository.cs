@@ -1,13 +1,13 @@
-﻿using Entities.Abstract;
-using Entities.Concrete;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using Core.Entities;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {    //IEntity olabilir yada IEntity implemente eden bir nesne olabilir.
     //Generic Constraint
+    //class referans tip
     //new() new lenebilir olmalı çünkü IEntity new lenemez artık sadece class olabilir  
     public interface IEntitRepository<T> where T : class, IEntity,new()//sadece referanstip olabilir ve class ile class çağırabiliriz.
     {

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using Entities.DTOs;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -42,6 +43,11 @@ namespace DataAccess.Concrete.InMemory
             //Linq yukarıdaki foreach e yarar
             Product productToDelete = _products.SingleOrDefault(p=>p.ProductId==product.ProductId);//Tek bir eleman bulmaya yarar
             _products.Remove(productToDelete);
+        }
+
+        public List<ProductDetailDto> GetProductDetail()
+        {
+            throw new NotImplementedException();
         }
 
         public List<Product> GetAllByCategory(int categoryId)
