@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 
 namespace Business.Concrete
 {
@@ -20,17 +24,13 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
             //Business Codes (İş kodları) buraya yazılır.
-            if (product.ProductName.Length < 2)
-            {
-                //magic string
-                return new ErrorResult(Messages.ProductNameInValid);
-            }
-
+            //validation 
+            
             _productDal.Add(product);
-
             return new SuccessResult(Messages.ProductAdded);
         }
 
@@ -38,7 +38,7 @@ namespace Business.Concrete
         {
             //İş Kodları yazılır
             //Yetkisi var mı?
-            if (DateTime.Now.Hour == 16)
+            if (DateTime.Now.Hour == 18)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
