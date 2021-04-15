@@ -9,7 +9,7 @@ using Entities.DTOs;
 namespace DataAccess.Abstract
 {
     //Artık burada hangi nesne olduğunu belirterek IEntitRepository referans verip içerideki kodları kullanabiliyoruz. 
-    public interface IProductDal:IEntitRepository<Product>
+    public interface IProductDal:IEntityRepository<Product>
     {
         List<ProductDetailDto> GetProductDetail();
 

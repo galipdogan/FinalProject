@@ -14,5 +14,4 @@ namespace Entities.DTOs
         public short UnitsInStock { get; set; }
     }
 
-   
 }

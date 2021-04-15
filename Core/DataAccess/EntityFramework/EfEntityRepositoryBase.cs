@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.DataAccess.EntityFramework
 {
-   public class EfEntityRepositoryBase<TEntity,TContext>:IEntitRepository<TEntity>
+   public class EfEntityRepositoryBase<TEntity,TContext>:IEntityRepository<TEntity>
         where TEntity:class,IEntity,new() // Bu satırda kuralları koyuyoruz. sadece class
         where TContext:DbContext,new()// Burada sadece DBContext türünü yazabilirsiniz
    {

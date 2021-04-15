@@ -6,7 +6,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface IOrderDal: IEntitRepository<Order>
+    public interface IOrderDal: IEntityRepository<Order>
     {
     }
 }
